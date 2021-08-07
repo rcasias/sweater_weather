@@ -1,11 +1,21 @@
 class WeatherFacade
-  def self.current_weather(city, state)
+  attr_reader :current_weather,
+              :hourly_weather,
+              :daily_weather
+
+  def initialize(city, state)
+    @current_weather = self.current(city, state)
+    @hourly_weather = self.hourly(city, state)
+    @daily_weather = self.daily(city, state)
+  end
+
+  def current(city, state)
     map = MapQuestFacade.location(city, state)
     weather = WeatherService.get_weather(map.lat, map.lon)
     CurrentWeather.new(weather)
   end
 
-  def self.hourly_weather(city, state)
+  def hourly(city, state)
     map = MapQuestFacade.location(city, state)
     weather = WeatherService.get_weather(map.lat, map.lon)
     count = 0
@@ -16,7 +26,7 @@ class WeatherFacade
     hourly_weather_listed
   end
 
-  def self.daily_weather(city, state)
+  def daily(city, state)
     map = MapQuestFacade.location(city, state)
     weather = WeatherService.get_weather(map.lat, map.lon)
     count = 0
