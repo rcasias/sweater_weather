@@ -11,9 +11,9 @@ class CurrentWeather
               :icon
 
   def initialize(data)
-    @datetime = data[:current][:dt]
-    @sunrise = data[:current][:sunrise]
-    @sunset = data[:current][:sunset]
+    @datetime = Time.at(data[:current][:dt]).strftime('%Y-%m-%d %H:%M:%S%z')
+    @sunrise = Time.at(data[:current][:sunrise]).strftime('%Y-%m-%d %H:%M:%S%z')
+    @sunset = Time.at(data[:current][:sunset]).strftime('%Y-%m-%d %H:%M:%S%z')
     @temp = data[:current][:temp]
     @feels = data[:current][:feels_like]
     @humidity = data[:current][:humidity]
@@ -23,20 +23,4 @@ class CurrentWeather
     @icon = data[:current][:weather][0][:icon]
   end
 
-  def translate_time(time)
-    time = Time.at(time)
-    time.strftime('%Y-%m-%d %H:%M:%S%z')
-  end
-
-  def strftime_datetime
-    translate_time(@datetime)
-  end
-
-  def strftime_sunrise
-    translate_time(@sunrise)
-  end
-
-  def strftime_sunset
-    translate_time(@sunset)
-  end
 end
