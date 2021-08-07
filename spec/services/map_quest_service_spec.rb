@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'MapQuestService' do
-  it 'returns mapquest service', :vcr do
+  it 'returns mapquest service for current weather', :vcr do
     service = MapQuestService.get_location("pueblo", "co")
     data = service[:results][0][:locations][0]
 
