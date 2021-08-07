@@ -22,18 +22,19 @@ class WeatherFacade
     hourly_weather_listed = weather[:hourly].map do |hour|
       HourlyWeather.new(weather, count)
     end
-    count + 1
+    count += 1
     hourly_weather_listed
   end
 
   def daily(city, state)
     map = MapQuestFacade.location(city, state)
     weather = WeatherService.get_weather(map.lat, map.lon)
+    list = []
     count = 0
-    daily_weather_listed = weather[:daily].map do |hour|
-      DailyWeather.new(weather, count)
+    weather[:daily].each do |hour|
+      list << DailyWeather.new(weather, count)
+      count += 1
     end
-    count + 1
-    daily_weather_listed
+    list
   end
 end
