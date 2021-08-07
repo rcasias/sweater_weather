@@ -4,7 +4,7 @@ RSpec.describe 'WeatherService' do
   it 'can get weather service', :vcr do
     service = WeatherService.get_weather("38.265425", "-104.610415")
     data = service[:current]
-    # binding.pry
+  
     expect(data).to have_key(:dt)
     expect(data[:dt]).to eq(1628307333)
     expect(data).to have_key(:temp)
@@ -19,6 +19,5 @@ RSpec.describe 'WeatherService' do
     expect(daily[0]).to have_key(:dt)
     expect(daily[0]).to have_key(:sunrise)
   end
-
 
 end
