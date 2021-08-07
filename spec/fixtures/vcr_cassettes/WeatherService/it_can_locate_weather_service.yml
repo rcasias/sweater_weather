@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=acb86893ad07ed4542668403f58f377b&lat=38.265425&lon=-104.610415
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Sat, 07 Aug 2021 02:24:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '472'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?lat=38.27&lon=-104.61"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":-104.6104,"lat":38.2654},"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01n"}],"base":"stations","main":{"temp":302.21,"feels_like":300.82,"temp_min":299.76,"temp_max":305.5,"pressure":1006,"humidity":25},"visibility":10000,"wind":{"speed":3.6,"deg":270},"clouds":{"all":1},"dt":1628303053,"sys":{"type":2,"id":2004743,"country":"US","sunrise":1628251529,"sunset":1628301787},"timezone":-21600,"id":5435464,"name":"Pueblo","cod":200}'
+  recorded_at: Sat, 07 Aug 2021 02:24:13 GMT
+recorded_with: VCR 6.0.0
