@@ -11,6 +11,4 @@ RSpec.describe 'Image Poros' do
     expect(image.source).to eq("Unsplash.com")
     expect(image.author).to eq("Andrew Coop")
   end
-
-
 end
