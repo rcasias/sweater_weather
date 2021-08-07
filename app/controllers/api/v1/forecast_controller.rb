@@ -6,7 +6,6 @@ class Api::V1::ForecastController < ApplicationController
     city = split_location[0]
     state = split_location[1]
     current = WeatherFacade.new(city, state)
-    # binding.pry
     render json: ForecastSerializer.new(current)
   end
 
