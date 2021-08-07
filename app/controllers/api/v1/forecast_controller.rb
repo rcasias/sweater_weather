@@ -7,7 +7,12 @@ class Api::V1::ForecastController < ApplicationController
     state = split_location[1]
     # binding.pry
     if location.nil? || city == "" || state.nil?
-      render json: {data:{}}, status: 404
+      render json: {
+                    "message": "your query could not be completed",
+                    "error": [
+                      "please enter a location with city and state"
+                    ]
+                    }, status: 404 and return
     else
       current = WeatherFacade.new(city, state)
       render json: ForecastSerializer.new(current), status: :ok
