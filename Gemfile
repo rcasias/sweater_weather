@@ -30,6 +30,7 @@ gem 'puma', '~> 3.11'
 gem 'figaro'
 gem 'faraday'
 gem 'jsonapi-serializer'
+gem 'fast_jsonapi'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
