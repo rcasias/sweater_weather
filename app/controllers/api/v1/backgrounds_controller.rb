@@ -2,10 +2,19 @@ class Api::V1::BackgroundsController < ApplicationController
 
   def index
     location = params[:location]
-
-    current = ImageFacade.new(location)
-    render json: ImageSerializer.new(current), status: :ok
-
+    if location.nil? || location == ""
+      render json: {
+                    "message": "your query could not be completed",
+                    "error": [
+                      "please enter a location"
+                    ]
+                    }, status: 404 and return
+    else
+      current = ImageFacade.new(location)
+      render json: ImageSerializer.new(current), status: :ok
+    end
+  rescue
+    render json: {data:{}}, status: 404
   end
 
 end
