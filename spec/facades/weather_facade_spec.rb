@@ -17,7 +17,6 @@ RSpec.describe 'WeatherFacade' do
 
   it 'returns hourly weather data correctly', :vcr do
     data = WeatherFacade.new("Pueblo", "Co")
-    # binding.pry
 
     expect(data.hourly_weather.count).to eq(48)
     expect(data.hourly_weather.first.time).to eq("13:00:00")
@@ -26,16 +25,16 @@ RSpec.describe 'WeatherFacade' do
     expect(data.hourly_weather.first.icon).to eq("01d")
   end
 
-  # it 'returns daily weather correctly', :vcr do
-  #   data = WeatherFacade.new("Pueblo", "Co")
-  #   # binding.pry
-  #   expect(data.count).to eq(8)
-  #   expect(data.first.conditions).to eq("overcast clouds")
-  #   expect(data.first.strftime_date).to eq("2021-08-14")
-  #   expect(data.first.icon).to eq("04d")
-  #   expect(data.first.max_temp).to eq(89.17)
-  #   expect(data.first.min_temp).to eq(67.98)
-  #   expect(data.first.strftime_sunrise).to eq("2021-08-14 06:12:37-0600")
-  #   expect(data.first.strftime_sunset).to eq("2021-08-14 19:53:42-0600")
-  # end
+  it 'returns daily weather correctly', :vcr do
+    data = WeatherFacade.new("Pueblo", "Co")
+    
+    expect(data.daily_weather.count).to eq(8)
+    expect(data.daily_weather.first.conditions).to eq("clear sky")
+    expect(data.daily_weather.first.date).to eq("2021-08-07")
+    expect(data.daily_weather.first.icon).to eq("01d")
+    expect(data.daily_weather.first.max_temp).to eq(91.74)
+    expect(data.daily_weather.first.min_temp).to eq(68.61)
+    expect(data.daily_weather.first.sunrise).to eq("2021-08-07 06:06:22-0600")
+    expect(data.daily_weather.first.sunset).to eq("2021-08-07 20:02:00-0600")
+  end
 end
