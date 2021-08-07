@@ -27,7 +27,7 @@ RSpec.describe 'WeatherFacade' do
 
   it 'returns daily weather correctly', :vcr do
     data = WeatherFacade.new("Pueblo", "Co")
-    
+
     expect(data.daily_weather.count).to eq(8)
     expect(data.daily_weather.first.conditions).to eq("clear sky")
     expect(data.daily_weather.first.date).to eq("2021-08-07")
