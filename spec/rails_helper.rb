@@ -79,3 +79,10 @@ Shoulda::Matchers.configure do |config|
     config.configure_rspec_metadata!
   end
 end
+
+Unsplash.configure do |config|
+  config.application_access_key = ENV['Unsplash_API_KEY']
+  config.application_secret = ENV['Unsplash_API_SECRET_KEY']
+  # config.application_redirect_uri = "https://your-application.com/oauth/callback"
+  config.utm_source = "alices_terrific_client_app"
+end
