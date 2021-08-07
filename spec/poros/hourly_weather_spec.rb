@@ -8,7 +8,7 @@ RSpec.describe 'Hourly Weather Poros' do
   end
 
   it 'can translate and find time for current day' do
-    expect(@weather.strftime_time).to eq("23:00:00")
+    expect(@weather.time).to eq("23:00:00")
   end
 
   it 'can access data for current day' do

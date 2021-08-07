@@ -20,7 +20,7 @@ RSpec.describe 'WeatherFacade' do
     data = WeatherFacade.hourly_weather("Pueblo", "Co")
 
     expect(data.count).to eq(48)
-    expect(data.first.strftime_time).to eq("10:00:00")
+    expect(data.first.time).to eq("10:00:00")
     expect(data.first.temp).to eq(83.35)
     expect(data.first.conditions).to eq("clear sky")
     expect(data.first.icon).to eq("01d")
