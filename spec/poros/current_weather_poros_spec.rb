@@ -14,7 +14,7 @@ RSpec.describe 'Current Weather Poros' do
   end
 
   it 'can access data for current day' do
-    expect(@weather.temp).to eq(78.67)
+    expect(@weather.temp).to eq("78.67 F")
     expect(@weather.feels).to eq(77.94)
     expect(@weather.humidity).to eq(36)
     expect(@weather.uvi).to eq(0)
