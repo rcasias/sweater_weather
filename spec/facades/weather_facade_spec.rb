@@ -7,7 +7,7 @@ RSpec.describe 'WeatherFacade' do
     expect(data.current_weather.sunrise).to eq("2021-08-07 06:06:22-0600")
     expect(data.current_weather.sunset).to eq("2021-08-07 20:02:00-0600")
     expect(data.current_weather.description).to eq("clear sky")
-    expect(data.current_weather.temp).to eq(89.01)
+    expect(data.current_weather.temp).to eq("89.01 F")
     expect(data.current_weather.icon).to eq("01d")
     expect(data.current_weather.uvi).to eq(9.81)
     expect(data.current_weather.visibility).to eq(10000)
