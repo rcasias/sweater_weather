@@ -22,7 +22,7 @@ class Api::V1::BreweriesController < ApplicationController
     else
       # binding.pry
       current = BreweryFacade.new(city, state, quantity)
-      render json: BrewerySerializer.new(current), status: :ok
+      render json: BreweriesSerializer.new(current), status: :ok
     end
   rescue
     render json: {data:{}}, status: 404
