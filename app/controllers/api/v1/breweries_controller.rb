@@ -6,6 +6,10 @@ class Api::V1::BreweriesController < ApplicationController
     city = split_location[0]
     state = split_location[1]
     quantity = params[:quantity].to_i
+
+    if quantity.nil? || quantity <= 0 || quantity == ""
+      quantity = 5
+    end
     # binding.pry
     # binding.pry
     if location.nil? || city == "" || state.nil?
