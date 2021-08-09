@@ -17,10 +17,10 @@ RSpec.describe 'BreweryFacade' do
   end
 
   it 'returns breweries for location', :vcr do
-    data = BreweryFacade.new("Pueblo", "Co", 5)
+    data = BreweryFacade.new("Pueblo", "Co", 10)
 
     expect(data.breweries).to be_an Array
-    expect(data.breweries.count).to eq(5)
+    expect(data.breweries.count).to eq(10)
 
     first = data.breweries.first
 

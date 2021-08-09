@@ -9,7 +9,7 @@ RSpec.describe 'Weather Request' do
 
       data = JSON.parse(response.body, symbolize_names: true)
       weather = data[:data]
-      # binding.pry
+
       expect(weather[:type]).to eq 'forecast'
 
       att = weather[:attributes]
@@ -52,7 +52,7 @@ RSpec.describe 'Weather Request' do
 
       data = JSON.parse(response.body, symbolize_names: true)
       weather = data[:data]
-      # binding.pry
+
       expect(weather[:type]).to eq 'forecast'
 
       att = weather[:attributes]

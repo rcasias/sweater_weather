@@ -123,6 +123,5 @@ RSpec.describe 'Brewery Request' do
       expect(brewery_info).to_not have_key :created_at
     end
 
-
   end
 end
