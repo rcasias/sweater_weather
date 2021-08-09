@@ -2,24 +2,35 @@ require 'rails_helper'
 
 RSpec.describe 'Brewery Request' do
   describe 'index' do
-    # it 'gets info for a city - happy path keys' do
-    #   get '/api/v1/breweries?location=Pueblo,CO'
-    #
-    #   expect(response.status).to eq 200
-    #
-    #   data = JSON.parse(response.body, symbolize_names: true)
-    #   weather = data[:data]
-    #   # binding.pry
-    #   expect(weather[:type]).to eq 'forecast'
-    #
-    #   att = weather[:attributes]
-    #
-    #   expect(att).to have_key :current_weather
-    #   expect(att).to have_key :daily_weather
-    #   expect(att[:daily_weather]).to be_an Array
-    #   expect(att).to have_key :hourly_weather
-    #   expect(att[:hourly_weather]).to be_an Array
-    # end
+    it 'gets info for a city - happy path keys' do
+      get '/api/v1/breweries?location=Pueblo,CO'
+
+      expect(response.status).to eq 200
+
+      data = JSON.parse(response.body, symbolize_names: true)
+      brewery_info = data[:data]
+
+      expect(brewery_info).to have_key :id
+      expect(brewery_info).to have_key :type
+      expect(brewery_info).to have_key :attributes
+
+      brewery_info_attributes = brewery_info[:attributes]
+
+      expect(brewery_info_attributes). to have_key :destination
+      expect(brewery_info_attributes). to have_key :forecast
+      expect(brewery_info_attributes). to have_key :breweries
+
+      brewery_info_forecast = brewery_info_attributes[:forecast]
+
+      expect(brewery_info_forecast).to have_key :summary
+      expect(brewery_info_forecast).to have_key :tempurature
+
+      brewery_store_info = brewery_info_attributes[:breweries].first
+
+      expect(brewery_store_info).to have_key :id
+      expect(brewery_store_info).to have_key :name
+      expect(brewery_store_info).to have_key :brewery_type
+    end
 
     it 'has a sad path error page no city' do
       get '/api/v1/breweries?location=,CO'
