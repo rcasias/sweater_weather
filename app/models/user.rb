@@ -9,10 +9,4 @@ class User < ApplicationRecord
   before_create do
     self.api_key = SecureRandom.hex
   end
-
-# private
-#
-#   def generate_api_key
-#     self.api_key = SecureRandom.hex
-#   end
 end

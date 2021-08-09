@@ -7,7 +7,6 @@ class Api::V1::UsersController < ApplicationController
 
 
   def create
-    binding.pry
     if params[:password] != params[:password_confirmation]
       render json: {
                     "message": "your query could not be completed",
