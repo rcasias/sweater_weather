@@ -9,7 +9,7 @@ RSpec.describe 'Brewery Poros' do
     end
 
     first = brewery.first
-    # binding.pry
+    
     expect(first.id).to eq(15563)
     expect(first.name).to eq("Walter Brewing Company")
     expect(first.brewery_type).to eq("micro")
