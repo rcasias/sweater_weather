@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'BreweryFacade' do
   it 'returns destination correctly', :vcr do
     data = BreweryFacade.new("Pueblo", "Co", 5)
-    # binding.pry
+
     expect(data.destination).to eq("Pueblo, Co")
   end
 
@@ -18,7 +18,7 @@ RSpec.describe 'BreweryFacade' do
 
   it 'returns breweries for location', :vcr do
     data = BreweryFacade.new("Pueblo", "Co", 5)
-    # binding.pry
+  
     expect(data.breweries).to be_an Array
     expect(data.breweries.count).to eq(5)
 

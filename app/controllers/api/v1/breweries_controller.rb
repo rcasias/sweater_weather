@@ -10,8 +10,7 @@ class Api::V1::BreweriesController < ApplicationController
     if quantity.nil? || quantity <= 0 || quantity == ""
       quantity = 5
     end
-    # binding.pry
-    # binding.pry
+
     if location.nil? || city == "" || state.nil?
       render json: {
                     "message": "your query could not be completed",
@@ -20,7 +19,6 @@ class Api::V1::BreweriesController < ApplicationController
                     ]
                     }, status: 404 and return
     else
-      # binding.pry
       current = BreweryFacade.new(city, state, quantity)
       render json: BreweriesSerializer.new(current), status: :ok
     end
