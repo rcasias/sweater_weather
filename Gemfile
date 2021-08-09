@@ -33,6 +33,7 @@ gem 'jsonapi-serializer'
 gem 'fast_jsonapi'
 gem 'unsplash'
 gem 'bcrypt'
+gem 'securerandom'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
