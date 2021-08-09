@@ -5,6 +5,8 @@ class Api::V1::BreweriesController < ApplicationController
     split_location = location.split(",")
     city = split_location[0]
     state = split_location[1]
+    quantity = params[:quantity].to_i
+    # binding.pry
     # binding.pry
     if location.nil? || city == "" || state.nil?
       render json: {
@@ -15,7 +17,7 @@ class Api::V1::BreweriesController < ApplicationController
                     }, status: 404 and return
     else
       # binding.pry
-      current = BreweryFacade.new(city, state)
+      current = BreweryFacade.new(city, state, quantity)
       render json: BrewerySerializer.new(current), status: :ok
     end
   rescue
