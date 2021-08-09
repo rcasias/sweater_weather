@@ -13,12 +13,12 @@ RSpec.describe 'BreweryFacade' do
     expect(data.forecast).to have_key :summary
     expect(data.forecast[:summary]).to eq("haze")
     expect(data.forecast).to have_key :tempurature
-    expect(data.forecast[:tempurature]).to eq(87.66)
+    expect(data.forecast[:tempurature]).to eq("87.66 F")
   end
 
   it 'returns breweries for location', :vcr do
     data = BreweryFacade.new("Pueblo", "Co", 5)
-  
+
     expect(data.breweries).to be_an Array
     expect(data.breweries.count).to eq(5)
 

@@ -14,7 +14,7 @@ class CurrentWeather
     @datetime = Time.at(data[:current][:dt]).strftime('%Y-%m-%d %H:%M:%S%z')
     @sunrise = Time.at(data[:current][:sunrise]).strftime('%Y-%m-%d %H:%M:%S%z')
     @sunset = Time.at(data[:current][:sunset]).strftime('%Y-%m-%d %H:%M:%S%z')
-    @temp = data[:current][:temp]
+    @temp = (data[:current][:temp].to_s + " " + "F")
     @feels = data[:current][:feels_like]
     @humidity = data[:current][:humidity]
     @uvi = data[:current][:uvi]
