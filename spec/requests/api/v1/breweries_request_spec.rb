@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Brewery Request' do
   describe 'index' do
-    it 'gets info for a city - happy path keys' do
+    it 'gets brewery info for a city - happy path keys' do
       get '/api/v1/breweries?location=Pueblo,CO'
 
       expect(response.status).to eq 200
