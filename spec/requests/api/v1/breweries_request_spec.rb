@@ -96,6 +96,33 @@ RSpec.describe 'Brewery Request' do
       expect(data[:data][:attributes][:breweries].count).to eq(5)
     end
 
+    it 'does not have unnessesary data' do
+      get '/api/v1/breweries?location=pueblo,co&quantity=0'
+
+      expect(response.status).to eq 200
+
+      data = JSON.parse(response.body, symbolize_names: true)
+
+      brewery_info = data[:data][:attributes][:breweries][0]
+
+      expect(brewery_info).to be_a Hash
+      expect(brewery_info).to_not have_key :obdb_id
+      expect(brewery_info).to_not have_key :street
+      expect(brewery_info).to_not have_key :address_2
+      expect(brewery_info).to_not have_key :address_3
+      expect(brewery_info).to_not have_key :city
+      expect(brewery_info).to_not have_key :state
+      expect(brewery_info).to_not have_key :county_province
+      expect(brewery_info).to_not have_key :postal_code
+      expect(brewery_info).to_not have_key :country
+      expect(brewery_info).to_not have_key :longitude
+      expect(brewery_info).to_not have_key :latitude
+      expect(brewery_info).to_not have_key :phone
+      expect(brewery_info).to_not have_key :website_url
+      expect(brewery_info).to_not have_key :updated_at
+      expect(brewery_info).to_not have_key :created_at
+    end
+
 
   end
 end
