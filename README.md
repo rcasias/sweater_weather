@@ -4,36 +4,47 @@ Sweater Weather is a Back End program designed to retrieve weather and images fo
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby and Rails versions
 
     ruby '2.7.2'
+    rails '5.2.6'
 
-* System dependencies
+* System configuration and dependencies
 
-  - Run `Bundle Install`
+  From your terminal:
+
+  - Run `bundle install`
   - Run  `bundle exec figaro install`
   - Verify that an `application.yml` file was created under your `config` directory.
+  - In `application.yml` add your api keys
 
-  Sweater Weather uses multiple API endpoints. You will need to register at:
+  Sweater Weather uses multiple API endpoints. You will need to register an api key at:
 
-  - [MapQuest’s Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/)
-  - [OpenWeather One Call API](https://openweathermap.org/api/one-call-api)
-  - [Unsplash Developers](https://unsplash.com/developers)
+  - [MapQuest’s Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/) Format: `MapQuest_API_KEY: ""`
+  - [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) Format: `OpenWeather_API_KEY: ""`
+  - [Unsplash Developers](https://unsplash.com/developers) Format: `Unsplash_API_KEY: ""`
 
-  The final Api used is for Open Brewery DB, THERE ARE NO API KEYS NEEED FOR THIS DATABASE.
+  The final Api that was used is from Open Brewery DB, THERE ARE NO API KEYS NEEED FOR THIS DATABASE.
 
   - [Open Brewery DB](https://www.openbrewerydb.org/)
 
-* Configuration
-
 * Database creation
+
+  From your terminal:
+
+  - Run `rails db:create`
 
 * Database initialization
 
+  From your terminal:
+
+  - Run `rails db:migrate`
+
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+  From your terminal:
 
-* Deployment instructions
+  - Run  `bundle exec rspec` or
+  - Run `bundle exec rspec -f d` for a detailed result.
 
 * ...
