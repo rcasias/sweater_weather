@@ -5,6 +5,7 @@ Rails.application.routes.draw do
    get '/api/v1/backgrounds', to: 'api/v1/backgrounds#index'
    get 'api/v1/breweries', to: 'api/v1/breweries#index'
    post 'api/v1/sessions', to: 'api/v1/sessions#create'
+   post 'api/v1/road_trip', to: 'api/v1/road_trip#create'
 
    namespace :api do
     namespace :v1 do
