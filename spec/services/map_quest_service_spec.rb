@@ -21,11 +21,13 @@ RSpec.describe 'MapQuestService' do
 
   it 'returns mapquest service for directions', :vcr do
     service = MapQuestService.get_directions("pueblo", "co", "denver", "co")
-    # binding.pry
+
     expect(service).to be_a Hash
 
     route = service[:route]
 
     expect(route).to have_key :formattedTime
+    expect(route[:formattedTime]).to be_a String
+    expect(route[:formattedTime]).to eq("01:41:37")
   end
 end
