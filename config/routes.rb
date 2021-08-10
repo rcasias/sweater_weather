@@ -4,6 +4,7 @@ Rails.application.routes.draw do
    get '/api/v1/forecast', to: 'api/v1/forecast#index'
    get '/api/v1/backgrounds', to: 'api/v1/backgrounds#index'
    get 'api/v1/breweries', to: 'api/v1/breweries#index'
+   post 'api/v1/sessions', to: 'api/v1/sessions#create'
 
    namespace :api do
     namespace :v1 do
