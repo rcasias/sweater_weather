@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     users =  User.all
-    render json: UserSerializer.new(users)
+    render json: UsersSerializer.new(users)
   end
 
 
@@ -16,7 +16,7 @@ class Api::V1::UsersController < ApplicationController
                     }, status: 404 and return
     else
       new_user = User.create!(user_params)
-      render json: UserSerializer.new(new_user), status: :created
+      render json: UsersSerializer.new(new_user), status: :created
     end
   end
 
