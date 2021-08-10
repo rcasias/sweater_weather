@@ -17,8 +17,6 @@ class Api::V1::ForecastController < ApplicationController
       current = WeatherFacade.new(city, state)
       render json: ForecastSerializer.new(current), status: :ok
     end
-  rescue
-    render json: {data:{}}, status: 404
   end
 
 end
