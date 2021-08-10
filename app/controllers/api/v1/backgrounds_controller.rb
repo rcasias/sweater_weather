@@ -13,8 +13,6 @@ class Api::V1::BackgroundsController < ApplicationController
       current = ImageFacade.new(location)
       render json: ImageSerializer.new(current), status: :ok
     end
-  rescue
-    render json: {data:{}}, status: 404
   end
 
 end

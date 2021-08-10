@@ -22,8 +22,6 @@ class Api::V1::BreweriesController < ApplicationController
       current = BreweryFacade.new(city, state, quantity)
       render json: BreweriesSerializer.new(current), status: :ok
     end
-  rescue
-    render json: {data:{}}, status: 404
   end
 
 end
