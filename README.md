@@ -47,4 +47,113 @@ Things you may want to cover:
   - Run  `bundle exec rspec` or
   - Run `bundle exec rspec -f d` for a detailed result.
 
-* ...
+* Endpoints
+
+  - `GET /api/v1/forecast?location=denver,co`
+
+  ```{
+    "data": {
+        "id": "null",
+        "type": "forecast",
+        "attributes": {
+            "current_weather": {
+                "datetime": "2021-08-10 13:53:52-0600",
+                "sunrise": "2021-08-10 06:07:41-0600",
+                "sunset": "2021-08-10 20:02:56-0600",
+                "temp": "92.46 F",
+                "feels": 88.2,
+                "humidity": 15,
+                "uvi": 8.73,
+                "visibility": 10000,
+                "description": "broken clouds",
+                "icon": "04d"
+            },
+            "daily_weather": [
+                {
+                    "date": "2021-08-10",
+                    "sunrise": "2021-08-10 06:07:41-0600",
+                    "sunset": "2021-08-10 20:02:56-0600",
+                    "max_temp": 93.27,
+                    "min_temp": 71.51,
+                    "conditions": "scattered clouds",
+                    "icon": "03d"
+                },
+                {...} etc
+            ],
+            "hourly_weather": [
+                {
+                    "time": "13:00:00",
+                    "temp": 92.59,
+                    "conditions": "scattered clouds",
+                    "icon": "03d"
+                },    
+                {...} etc
+            ]
+          }
+        }
+      }```
+
+  -  `GET /api/v1/backgrounds?location=denver,co`    
+
+  ```{
+    "data": {
+        "id": "null",
+        "type": "image",
+        "attributes": {
+            "image": {
+                "description": "Night Time Downtown Denver",
+                "url": "https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?ixid=MnwyNTIxNDF8MHwxfHNlYXJjaHwxfHxkZW52ZXIlMkNjb3xlbnwwfHx8fDE2Mjg2MjUxNDI&ixlib=rb-1.2.1"
+            },
+            "credit": {
+                "source": "Unsplash.com",
+                "author": "Ryan De Hamer"
+            }
+          }
+        }
+      }```
+
+  -  `POST /api/v1/users`
+
+  ```{
+    "data": {
+        "id": "4",
+        "type": "users",
+        "attributes": {
+            "id": 4,
+            "email": "rcasias@example.com",
+            "api_key": "a939bcf8ca23432d61135d3eda22449b"
+        }
+    }
+  }```
+
+  - `POST /api/v1/sessions`
+
+  ```{
+    "data": {
+        "id": "4",
+        "type": "users",
+        "attributes": {
+            "id": 4,
+            "email": "rcasias@example.com",
+            "api_key": "a939bcf8ca23432d61135d3eda22449b"
+        }
+    }
+  }```
+
+  - `POST /api/v1/road_trip`
+
+  ```{
+    "data": {
+        "id": "null",
+        "type": "roadtrip",
+        "attributes": {
+            "start_city": "Denver, CO",
+            "end_city": "Pueblo, CO",
+            "travel_time": "1 hour(s), 44 minute(s)",
+            "weather_at_eta": {
+                "tempurature": 91.67,
+                "conditions": "overcast clouds"
+            }
+        }
+      }
+    }```
