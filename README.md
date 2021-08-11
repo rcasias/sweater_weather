@@ -91,8 +91,8 @@ Things you may want to cover:
             ]
           }
         }
-  }```
-
+      }  
+  ```
   -  `GET /api/v1/backgrounds?location=denver,co`    
 
   ```{
@@ -110,7 +110,8 @@ Things you may want to cover:
             }
           }
         }
-      }```
+      }
+  ```    
 
   -  `POST /api/v1/users`
 
@@ -124,7 +125,8 @@ Things you may want to cover:
             "api_key": "a939bcf8ca23432d61135d3eda22449b"
         }
     }
-  }```
+  }
+  ```
 
   - `POST /api/v1/sessions`
 
@@ -138,8 +140,8 @@ Things you may want to cover:
             "api_key": "a939bcf8ca23432d61135d3eda22449b"
         }
     }
-  }```
-
+  }
+```
   - `POST /api/v1/road_trip`
 
   ```{
@@ -156,4 +158,5 @@ Things you may want to cover:
             }
         }
       }
-    }```
+    }
+  ```  
