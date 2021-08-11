@@ -2,14 +2,12 @@
 
 Sweater Weather is a Back End program designed to retrieve weather and images for a city as well as registration and login for a user. Once a user is registered they are given an api key. A user can then provide an origin, destination, and their api key and will be given their expected travel time and weather conditions upon arrival.
 
-Things you may want to cover:
-
-* Ruby and Rails versions
+## Ruby and Rails versions
 
     ruby '2.7.2'
     rails '5.2.6'
 
-* System configuration and dependencies
+## System configuration and dependencies
 
   From your terminal:
 
@@ -20,38 +18,39 @@ Things you may want to cover:
 
   Sweater Weather uses multiple API endpoints. You will need to register an api key at:
 
-  - [MapQuest’s Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/) Format: `MapQuest_API_KEY: ""`
-  - [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) Format: `OpenWeather_API_KEY: ""`
-  - [Unsplash Developers](https://unsplash.com/developers) Format: `Unsplash_API_KEY: ""`
+  - [MapQuest’s Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/) Key Format: `MapQuest_API_KEY: ""`
+  - [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) Key Format: `OpenWeather_API_KEY: ""`
+  - [Unsplash Developers](https://unsplash.com/developers) Key Format: `Unsplash_API_KEY: ""`
 
   The final Api that was used is from Open Brewery DB, THERE ARE NO API KEYS NEEED FOR THIS DATABASE.
 
   - [Open Brewery DB](https://www.openbrewerydb.org/)
 
-* Database creation
+## Database creation
 
   From your terminal:
 
   - Run `rails db:create`
 
-* Database initialization
+## Database initialization
 
   From your terminal:
 
   - Run `rails db:migrate`
 
-* How to run the test suite
+## How to run the test suite
 
   From your terminal:
 
   - Run  `bundle exec rspec` or
   - Run `bundle exec rspec -f d` for a detailed result.
 
-* Endpoints
+## Endpoints Created In Project
 
 - `GET /api/v1/forecast?location=denver,co`
 
-```{
+```
+{
   "data": {
       "id": "null",
       "type": "forecast",
@@ -90,28 +89,53 @@ Things you may want to cover:
               {...} etc
           ]
         }
-      }
-    }  
+    }
+}  
 ```
 -  `GET /api/v1/backgrounds?location=denver,co`    
 
-```{
-  "data": {
-      "id": "null",
-      "type": "image",
-      "attributes": {
-          "image": {
-              "description": "Night Time Downtown Denver",
-              "url": "https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?ixid=MnwyNTIxNDF8MHwxfHNlYXJjaHwxfHxkZW52ZXIlMkNjb3xlbnwwfHx8fDE2Mjg2MjUxNDI&ixlib=rb-1.2.1"
-          },
-          "credit": {
-              "source": "Unsplash.com",
-              "author": "Ryan De Hamer"
-          }
+```
+{
+    "data": {
+        "id": "null",
+        "type": "image",
+        "attributes": {
+            "image": {
+                "description": "Night Time Downtown Denver",
+                "url": "https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?ixid=MnwyNTIxNDF8MHwxfHNlYXJjaHwxfHxkZW52ZXIlMkNjb3xlbnwwfHx8fDE2Mjg2MjUxNDI&ixlib=rb-1.2.1"
+            },
+            "credit": {
+                "source": "Unsplash.com",
+                "author": "Ryan De Hamer"
+            }
         }
-      }
     }
-```    
+}
+```  
+- `GET /api/v1/breweries?location=denver,co&quantity=1`  
+
+```
+{
+    "data": {
+        "id": "null",
+        "type": "breweries",
+        "attributes": {
+            "destination": "denver, co",
+            "forecast": {
+                "summary": "scattered clouds",
+                "tempurature": "86.22 F"
+            },
+            "breweries": [
+                {
+                    "id": 8962,
+                    "name": "Black Beak Brewing",
+                    "brewery_type": "planning"
+                }
+            ]
+        }
+    }
+}
+```
 
 -  `POST /api/v1/users`
 
@@ -127,7 +151,8 @@ In the body of the request:
 
 Response:
 
-```{
+```
+{
   "data": {
       "id": "4",
       "type": "users",
@@ -139,6 +164,7 @@ Response:
   }
 }
 ```
+- `POST /api/v1/sessions`
 
 In the body of the request:
 
@@ -153,7 +179,8 @@ Response:
 
 - `POST /api/v1/sessions`
 
-```{
+```
+{
   "data": {
       "id": "4",
       "type": "users",
@@ -178,19 +205,20 @@ In the body of the request:
 
 Response:
 
-```{
-  "data": {
-      "id": "null",
-      "type": "roadtrip",
-      "attributes": {
-          "start_city": "Denver, CO",
-          "end_city": "Pueblo, CO",
-          "travel_time": "1 hour(s), 44 minute(s)",
-          "weather_at_eta": {
-              "tempurature": 91.67,
-              "conditions": "overcast clouds"
-          }
-      }
+```
+{
+    "data": {
+        "id": "null",
+        "type": "roadtrip",
+        "attributes": {
+            "start_city": "Denver, CO",
+            "end_city": "Pueblo, CO",
+            "travel_time": "1 hour(s), 44 minute(s)",
+            "weather_at_eta": {
+                "tempurature": 91.67,
+                "conditions": "overcast clouds"
+            }
+        }
     }
-  }
+}
 ```  
