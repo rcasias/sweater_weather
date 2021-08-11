@@ -18,13 +18,25 @@ Sweater Weather is a Back End program designed to retrieve weather and images fo
 
   Sweater Weather uses multiple API endpoints. You will need to register an api key at:
 
-  - [MapQuest’s Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/) Key Format: `MapQuest_API_KEY: ""`
-  - [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) Key Format: `OpenWeather_API_KEY: ""`
-  - [Unsplash Developers](https://unsplash.com/developers) Key Format: `Unsplash_API_KEY: ""`
+  - [MapQuest’s Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/)
+    - Key Format: `MapQuest_API_KEY: ""`
+    - Endpoints:
+      - `http://www.mapquestapi.com/geocoding/v1/address?key=#{ENV['MapQuest_API_KEY']}&location==#{city},#{state}`
+      - `http://www.mapquestapi.com/directions/v2/route?key=#{ENV['MapQuest_API_KEY']}&from=#{curr_city},#{curr_state}&to=#{des_city},#{des_state}`
+  - [OpenWeather One Call API](https://openweathermap.org/api/one-call-api)
+    - Key Format: `OpenWeather_API_KEY: ""`
+    - Endpoints:
+      - `http://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{lon}&units=imperial&appid=#{ENV['OpenWeather_API_KEY']}`
+  - [Unsplash Developers](https://unsplash.com/developers)
+    - Key Format: `Unsplash_API_KEY: ""`
+    - Endpoints:
+      - `https://api.unsplash.com/search/photos?page=1&query=#{location}&client_id=#{ENV['Unsplash_API_KEY']}`
 
   The final Api that was used is from Open Brewery DB, THERE ARE NO API KEYS NEEED FOR THIS DATABASE.
 
   - [Open Brewery DB](https://www.openbrewerydb.org/)
+    - Endpoints:
+      - `https://api.openbrewerydb.org/breweries?by_dist=#{lat},#{lon}`
 
 ## Database creation
 
