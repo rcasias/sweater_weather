@@ -115,6 +115,18 @@ Things you may want to cover:
 
 -  `POST /api/v1/users`
 
+In the body of the request:
+
+```
+{
+  "email": "rcasias@example.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+```
+
+response:
+
 ```{
   "data": {
       "id": "4",
@@ -127,6 +139,17 @@ Things you may want to cover:
   }
 }
 ```
+
+In the body of the request:
+
+```
+{
+  "email": "rcasias@example.com",
+  "password": "password"
+}
+```
+
+response:
 
 - `POST /api/v1/sessions`
 
@@ -143,6 +166,17 @@ Things you may want to cover:
 }
 ```
 - `POST /api/v1/road_trip`
+
+In the body of the request:
+```
+{
+  "origin": "Denver,CO",
+  "destination": "Pueblo,CO",
+  "api_key": "a939bcf8ca23432d61135d3eda22449b"
+}
+```
+
+response:
 
 ```{
   "data": {
