@@ -12,6 +12,7 @@ Sweater Weather is a Back End program designed to retrieve weather and images fo
   From your terminal:
 
   - Clone down this repo using the `SSH` link in the `Code` tab at the top of this page.
+  - `CD` into file
   - Run `bundle install`
   - Run  `bundle exec figaro install`
   - Verify that an `application.yml` file was created under your `config` directory.
