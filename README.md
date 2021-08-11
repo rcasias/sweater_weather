@@ -125,7 +125,7 @@ In the body of the request:
 }
 ```
 
-response:
+Response:
 
 ```{
   "data": {
@@ -149,7 +149,7 @@ In the body of the request:
 }
 ```
 
-response:
+Response:
 
 - `POST /api/v1/sessions`
 
@@ -176,7 +176,7 @@ In the body of the request:
 }
 ```
 
-response:
+Response:
 
 ```{
   "data": {
