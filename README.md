@@ -91,7 +91,7 @@ Things you may want to cover:
             ]
           }
         }
-      }```
+  }```
 
   -  `GET /api/v1/backgrounds?location=denver,co`    
 
