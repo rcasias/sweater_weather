@@ -8,7 +8,7 @@ RSpec.describe 'Daily Weather Poros' do
     # binding.pry
   end
 
-  it 'can translate and find time for current day' do
+  xit 'can translate and find time for current day' do
     expect(@weather.date).to eq("2021-08-07")
     expect(@weather.sunrise).to eq("2021-08-07 06:06:22-0600")
     expect(@weather.sunset).to eq("2021-08-07 20:02:00-0600")
